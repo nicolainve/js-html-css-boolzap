@@ -4,11 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>js-html-css-boolzap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 
 </head>
 <body>
+
+    <div id="app" class="container">
+        <aside class="sidebar">
+
+            <section class="header-content">
+                <div class="profile">
+                    <img
+                    :src="'./img/avatar' + user.avatar + '.jpg'"
+                    alt="logo profile">
+                    <h2 class="username">{{ user.name }}</h2>
+                </div>
+                <div class="buttons">
+                    <i class="fas fa-circle-notch"></i>
+                    <i class="fas fa-comment-alt"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </section>
+
+            <section class="notifications">
+                <i class="fas fa-bell-slash"></i>
+                <div class="notifications-advice">
+                    <span>Ricevi notifiche di nuovi messaggi</span>
+                    <small>Attiva notifiche desktop</small>
+                </div>
+            </section>
+
+            <section class="search">
+                <i class="fas fa-search fa-xs"></i>
+                <input
+                type="text"
+                class="search-conversation"
+                placeholder="Cerca o inizia una nuova chat">
+            </section>
+
+            <section class="conversation-list">
+                <ul>
+                    <li v-for="contact in contacts">
+                        <img :src="'./img/avatar' + contact.avatar + '.jpg'" alt="logo contact">
+                        <h2 class="contact">{{ contact.name }}</h2>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+
+        <main class="main-content">
+            <section class="header-content">
+                <div class="contact">
+                    <img src="./img/avatar_io.jpg" alt="logo profile">
+                    <div class="user">
+                        <h2 class="username">Nome Utente</h2>
+                        <span class="last-acces">Ultimo accesso oggi alle 10.35</span>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-paperclip"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </section>
+
+            <section class="conversations">
+                
+            </section>
+
+            <section class="footer-content">
+                <i class="far fa-smile fa-lg"></i>
+                <input
+                type="text"
+                class="text-message"
+                placeholder="Scrivi un messaggio">
+                <i class="fas fa-microphone fa-lg"></i>
+            </section>
+        </main>
+    </div>
 
     <script src="./js/main.js"></script>
     
