@@ -47,7 +47,7 @@
 
             <section class="conversation-list">
                 <ul>
-                    <li v-for="(contact, index) in contacts" @click="viewConversation(index)">
+                    <li v-for="(contact, index) in contacts" @click="viewConversation(index)" :class="[index == activeIndex ? 'active' : '']">
                         <img :src="'./img/avatar' + contact.avatar + '.jpg'" alt="logo contact">
                         <h2 class="contact">{{ contact.name }}</h2>
                     </li>

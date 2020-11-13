@@ -152,6 +152,10 @@ img {
     background:rgb(238, 238, 238);
 }
 
+.conversation-list li.active {
+    background:rgb(238, 238, 238);
+}
+
 .conversation-list img {
     margin-right: 10px;
 }
@@ -199,7 +203,7 @@ ul.conversation li .message {
     min-width: 300px;
     background: #fff;
     display: inline-block;
-    padding: 10px;
+    padding: 12px;
     text-align: left;
     margin: 5px 0;
     border-radius: 12px;
@@ -208,7 +212,7 @@ ul.conversation li .message {
 
 ul.conversation li .message .date {
     position: absolute;
-    bottom: 3px;
+    bottom: 1px;
     right: 5px;
     font-size: 8px;
     color: #697376;
