@@ -9,6 +9,7 @@ var app = new Vue({
             name: 'Nome Utente',
             avatar: '_io'
         },
+        activeIndex: 0,
         // Elenco contatti
         contacts: [
             {
@@ -96,5 +97,9 @@ var app = new Vue({
             },
         ]
     },
-    methods: {}
+    methods: {
+        viewConversation(index) {
+            this.activeIndex = index;
+        }
+    }
 });

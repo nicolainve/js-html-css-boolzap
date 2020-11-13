@@ -134,6 +134,7 @@ img {
 /* Conversations-list */
 .conversation-list {
     flex-grow: 1;
+    overflow-y: auto;
 }
 
 .conversation-list ul {
@@ -145,6 +146,10 @@ img {
     display: flex;
     align-items: center;
     border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+.conversation-list li:hover {
+    background:rgb(238, 238, 238);
 }
 
 .conversation-list img {
@@ -174,11 +179,47 @@ img {
     color: #697376;
 }
 
-/* Conversations */
-.conversations {
+/* Conversation */
+.conversation {
     flex-grow: 1;
     background-image: url(../img/mine.jpg);
     background-size: auto;
+    overflow-y: auto;
+    padding: 20px 30px 0 30px;
+}
+
+ul.conversation {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+ul.conversation li .message {
+    position: relative;
+    min-width: 300px;
+    background: #fff;
+    display: inline-block;
+    padding: 10px;
+    text-align: left;
+    margin: 5px 0;
+    border-radius: 12px;
+    line-height: 2;
+}
+
+ul.conversation li .message .date {
+    position: absolute;
+    bottom: 3px;
+    right: 5px;
+    font-size: 8px;
+    color: #697376;
+}
+
+ul.conversation li.sent {
+    align-self: flex-end;
+}
+
+ul.conversation li.sent .message {
+    background: #cbfbb3;
 }
 
 /* Footer */
