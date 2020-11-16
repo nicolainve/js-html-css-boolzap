@@ -10,6 +10,7 @@ var app = new Vue({
             avatar: '_io'
         },
         activeIndex: 0,
+        input: '',
         // Elenco contatti
         contacts: [
             {
@@ -100,6 +101,22 @@ var app = new Vue({
     methods: {
         viewConversation(index) {
             this.activeIndex = index;
+        },
+        sendMessage() {
+            if (this.input.trim() !== '') {
+                this.contacts[this.activeIndex].messages.push({
+                    date: dayjs().format('DD/MM/YYYY hh:mm:ss'),
+                    message: this.input,
+                    status: 'sent'
+                })
+                this.input= '';
+
+                setTimeout(() => this.contacts[this.activeIndex].messages.push({
+                    date: dayjs().format('DD/MM/YYYY hh:mm:ss'),
+                    message: 'Ok',
+                    status: 'received'
+                }), 1000);
+            }
         }
     }
 });

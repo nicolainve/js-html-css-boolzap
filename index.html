@@ -87,12 +87,15 @@
                 <input
                 type="text"
                 class="text-message"
-                placeholder="Scrivi un messaggio">
+                placeholder="Scrivi un messaggio"
+                v-model="input"
+                @keyup.enter="sendMessage">
                 <i class="fas fa-microphone fa-lg"></i>
             </section>
         </main>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.6/dayjs.min.js"></script>
     <script src="./js/main.js"></script>
     
 </body>
