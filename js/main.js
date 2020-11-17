@@ -122,8 +122,10 @@ var app = new Vue({
         searchConversation() {
             this.contacts.forEach((element) => {
 
-                if (! element.name.includes(this.search)) {
+                if (! element.name.includes(this.search.toLowerCase().trim())) {
                     element.visible = false
+                } else {
+                    element.visible = true
                 }
                 
             })
