@@ -54,6 +54,7 @@
                     v-show="contact.visible == true">
                         <img :src="'./img/avatar' + contact.avatar + '.jpg'" alt="logo contact">
                         <h2 class="contact">{{ contact.name }}</h2>
+                        <i class="fas fa-angle-down fa-lg"></i>
                     </li>
                 </ul>
             </section>
@@ -81,6 +82,7 @@
                         <div class="message">
                             <p class="text">{{ message.message }}</p>
                             <span class="date">{{ message.date }}</span>
+                            <i class="fas fa-angle-down fa-lg"></i>
                         </div>
                     </li>
                 </ul>
