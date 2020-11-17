@@ -12,6 +12,7 @@ var app = new Vue({
         activeIndex: 0,
         input: '',
         search: '',
+        darkMode: '',
         // Elenco contatti
         contacts: [
             {
@@ -129,6 +130,9 @@ var app = new Vue({
                 }
                 
             })
+        },
+        switchDarkMode() {
+            this.darkMode = (this.darkMode == '') ? 'dark' : ''
         }
     }
 });

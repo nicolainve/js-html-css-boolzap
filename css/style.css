@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body {
+#app {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -201,11 +201,23 @@ i.fas.fa-angle-down {
 
 /* Conversation */
 .conversation {
+    position: relative;
     flex-grow: 1;
-    background-image: url(../img/mine.jpg);
-    background-size: auto;
     overflow-y: auto;
     padding: 20px 30px 0 30px;
+    z-index: 1;
+}
+
+.conversation::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-image: url(../img/mine.jpg);
+    background-size: auto;
+    z-index: -1;
 }
 
 ul.conversation {
@@ -276,4 +288,104 @@ ul.conversation li.sent .message {
         width: 100%;
         height: 100%;
     }
+}
+
+/* DARK MODE */
+
+#app.dark {
+    background: #090e11;
+    color: #fff;
+}
+
+#app.dark i.fas, i.far {
+    color: #b1b3b5;
+}
+
+
+/* Header */
+#app.dark .header-content {
+    background-color: #2a2f32;
+}
+
+
+/* Notifications */
+#app.dark .notifications {
+    background-color: #085373;
+}
+
+#app.dark .notifications .fa-bell-slash {
+    color: #085373;
+    background-color: #8eb2be;
+}
+
+#app.dark .notifications small {
+    color: #437587;
+}
+
+/* Search */
+#app.dark .search {
+    background-color: #131c21;
+}
+
+#app.dark .search .search-conversation {
+    background:#323739;
+}
+
+/* Conversations-list */
+#app.dark .conversation::before {
+    filter: invert(100%);
+}
+
+#app.dark .conversation-list {
+    background:#323739
+}
+
+#app.dark .conversation-list li {
+    background: #131c21;
+    border-bottom: 1px solid rgba(238, 238, 238, .2);
+}
+
+#app.dark .conversation-list li:hover {
+    background:#323739;
+}
+
+#app.dark .conversation-list li.active {
+    background:#323739;
+}
+
+/* MAIN */
+
+/* Contact */
+#app.dark .contact .user span {
+    font-size: 12px;
+    color: #e1e1e3;
+}
+
+/* Conversation */
+
+
+#app.dark ul.conversation li .message {
+    background: #262d31;
+}
+
+#app.dark ul.conversation li .message:hover i {
+    opacity: 1;
+    right: 10px;
+}
+
+#app.dark ul.conversation li .message .date {
+    color: #697376;
+}
+
+#app.dark ul.conversation li.sent .message {
+    background: #054740;
+}
+
+/* Footer */
+#app.dark .footer-content {
+    background-color: #1e2428;
+}
+
+#app.dark .footer-content input {
+    background: #323739;
 }

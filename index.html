@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>js-html-css-boolzap</title>
+    <title>BoolzApp</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -12,93 +12,97 @@
 </head>
 <body>
 
-    <div id="app" class="container">
-        <aside class="sidebar">
+    <div id="app" :class="darkMode">
 
-            <section class="header-content">
-                <div class="profile">
-                    <img
-                    :src="'./img/avatar' + user.avatar + '.jpg'"
-                    alt="logo profile">
-                    <h2 class="username">{{ user.name }}</h2>
-                </div>
-                <div class="buttons">
-                    <i class="fas fa-circle-notch fa-lg"></i>
-                    <i class="fas fa-comment-alt fa-lg"></i>
-                    <i class="fas fa-ellipsis-v fa-lg"></i>
-                </div>
-            </section>
+        <div class="container">
+            <aside class="sidebar">
 
-            <section class="notifications">
-                <i class="fas fa-bell-slash fa-lg"></i>
-                <div class="notifications-advice">
-                    <span>Ricevi notifiche di nuovi messaggi</span>
-                    <small>Attiva notifiche desktop</small>
-                </div>
-            </section>
-
-            <section class="search">
-                <i class="fas fa-search fa-sm"></i>
-                <input
-                type="text"
-                class="search-conversation"
-                placeholder="Cerca o inizia una nuova chat"
-                v-model="search"
-                @keyup="searchConversation">
-            </section>
-
-            <section class="conversation-list">
-                <ul>
-                    <li v-for="(contact, index) in contacts" @click="viewConversation(index)"
-                    :class="[index == activeIndex ? 'active' : '']"
-                    v-show="contact.visible == true">
-                        <img :src="'./img/avatar' + contact.avatar + '.jpg'" alt="logo contact">
-                        <h2 class="contact">{{ contact.name }}</h2>
-                        <i class="fas fa-angle-down fa-lg"></i>
-                    </li>
-                </ul>
-            </section>
-        </aside>
-
-        <main class="main-content">
-            <section class="header-content">
-                <div class="contact">
-                    <img :src="'./img/avatar' + contacts[activeIndex].avatar + '.jpg'" alt="logo profile">
-                    <div class="user">
-                        <h2 class="username">{{ contacts[activeIndex].name }}</h2>
-                        <span class="last-acces">Ultimo accesso {{ contacts[activeIndex].messages[contacts[activeIndex].messages.length - 1].date }}</span>
+                <section class="header-content">
+                    <div class="profile">
+                        <img
+                        :src="'./img/avatar' + user.avatar + '.jpg'"
+                        alt="logo profile">
+                        <h2 class="username">{{ user.name }}</h2>
                     </div>
-                </div>
-                <div class="buttons">
-                    <i class="fas fa-search fa-lg"></i>
-                    <i class="fas fa-paperclip fa-lg"></i>
-                    <i class="fas fa-ellipsis-v fa-lg"></i>
-                </div>
-            </section>
-
-            <section class="conversation">
-                <ul class="conversation">
-                    <li class="message" v-for="message in contacts[activeIndex].messages" :class="message.status">
-                        <div class="message">
-                            <p class="text">{{ message.message }}</p>
-                            <span class="date">{{ message.date }}</span>
+                    <div class="buttons">
+                        <i class="fas fa-adjust fa-lg" @click="switchDarkMode"></i>
+                        <i class="fas fa-circle-notch fa-lg"></i>
+                        <i class="fas fa-comment-alt fa-lg"></i>
+                        <i class="fas fa-ellipsis-v fa-lg"></i>
+                    </div>
+                </section>
+    
+                <section class="notifications">
+                    <i class="fas fa-bell-slash fa-lg"></i>
+                    <div class="notifications-advice">
+                        <span>Ricevi notifiche di nuovi messaggi</span>
+                        <small>Attiva notifiche desktop</small>
+                    </div>
+                </section>
+    
+                <section class="search">
+                    <i class="fas fa-search fa-sm"></i>
+                    <input
+                    type="text"
+                    class="search-conversation"
+                    placeholder="Cerca o inizia una nuova chat"
+                    v-model="search"
+                    @keyup="searchConversation">
+                </section>
+    
+                <section class="conversation-list">
+                    <ul>
+                        <li v-for="(contact, index) in contacts" @click="viewConversation(index)"
+                        :class="[index == activeIndex ? 'active' : '']"
+                        v-show="contact.visible == true">
+                            <img :src="'./img/avatar' + contact.avatar + '.jpg'" alt="logo contact">
+                            <h2 class="contact">{{ contact.name }}</h2>
                             <i class="fas fa-angle-down fa-lg"></i>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+    
+            <main class="main-content">
+                <section class="header-content">
+                    <div class="contact">
+                        <img :src="'./img/avatar' + contacts[activeIndex].avatar + '.jpg'" alt="logo profile">
+                        <div class="user">
+                            <h2 class="username">{{ contacts[activeIndex].name }}</h2>
+                            <span class="last-acces">Ultimo accesso {{ contacts[activeIndex].messages[contacts[activeIndex].messages.length - 1].date }}</span>
                         </div>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="footer-content">
-                <i class="far fa-smile fa-lg"></i>
-                <input
-                type="text"
-                class="text-message"
-                placeholder="Scrivi un messaggio"
-                v-model="input"
-                @keyup.enter="sendMessage">
-                <i class="fas fa-microphone fa-lg"></i>
-            </section>
-        </main>
+                    </div>
+                    <div class="buttons">
+                        <i class="fas fa-search fa-lg"></i>
+                        <i class="fas fa-paperclip fa-lg"></i>
+                        <i class="fas fa-ellipsis-v fa-lg"></i>
+                    </div>
+                </section>
+    
+                <section class="conversation">
+                    <ul class="conversation">
+                        <li class="message" v-for="message in contacts[activeIndex].messages" :class="message.status">
+                            <div class="message">
+                                <p class="text">{{ message.message }}</p>
+                                <span class="date">{{ message.date }}</span>
+                                <i class="fas fa-angle-down fa-lg"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+    
+                <section class="footer-content">
+                    <i class="far fa-smile fa-lg"></i>
+                    <input
+                    type="text"
+                    class="text-message"
+                    placeholder="Scrivi un messaggio"
+                    v-model="input"
+                    @keyup.enter="sendMessage">
+                    <i class="fas fa-microphone fa-lg"></i>
+                </section>
+            </main>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.6/dayjs.min.js"></script>
