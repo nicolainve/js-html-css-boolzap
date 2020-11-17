@@ -332,12 +332,8 @@ ul.conversation li.sent .message {
 }
 
 /* Conversations-list */
-#app.dark .conversation::before {
-    filter: invert(100%);
-}
-
 #app.dark .conversation-list {
-    background:#323739
+    background:#131c21;
 }
 
 #app.dark .conversation-list li {
@@ -362,7 +358,9 @@ ul.conversation li.sent .message {
 }
 
 /* Conversation */
-
+#app.dark .conversation::before {
+    filter: invert(100%);
+}
 
 #app.dark ul.conversation li .message {
     background: #262d31;
@@ -388,4 +386,5 @@ ul.conversation li.sent .message {
 
 #app.dark .footer-content input {
     background: #323739;
+    color: #fff;
 }
