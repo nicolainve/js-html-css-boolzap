@@ -56,7 +56,10 @@
                         :class="[index == activeIndex ? 'active' : '']"
                         v-show="contact.visible == true">
                             <img :src="'./img/avatar' + contact.avatar + '.jpg'" alt="logo contact">
-                            <h2 class="contact">{{ contact.name }}</h2>
+                            <div class="user-chat">
+                                <h2 class="contact">{{ contact.name }}</h2>
+                                <span class="last-message">{{ contacts[index].messages[contacts[index].messages.length - 1].message }}</span>
+                            </div>
                             <i class="fas fa-angle-down fa-lg"></i>
                         </li>
                     </ul>
@@ -65,7 +68,7 @@
     
             <main class="main-content">
                 <section class="header-content">
-                    <div class="contact">
+                    <div class="contact-sel">
                         <img :src="'./img/avatar' + contacts[activeIndex].avatar + '.jpg'" alt="logo profile">
                         <div class="user">
                             <h2 class="username">{{ contacts[activeIndex].name }}</h2>
