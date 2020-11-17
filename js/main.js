@@ -11,6 +11,7 @@ var app = new Vue({
         },
         activeIndex: 0,
         input: '',
+        search: '',
         // Elenco contatti
         contacts: [
             {
@@ -117,6 +118,15 @@ var app = new Vue({
                     status: 'received'
                 }), 1000);
             }
+        },
+        searchConversation() {
+            this.contacts.forEach((element) => {
+
+                if (! element.name.includes(this.search)) {
+                    element.visible = false
+                }
+                
+            })
         }
     }
 });
