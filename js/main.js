@@ -13,6 +13,7 @@ var app = new Vue({
         input: '',
         search: '',
         darkMode: '',
+        mode: 'Dark Mode',
         // Elenco contatti
         contacts: [
             {
@@ -132,7 +133,8 @@ var app = new Vue({
             })
         },
         switchDarkMode() {
-            this.darkMode = (this.darkMode == '') ? 'dark' : ''
+            this.darkMode = (this.darkMode == '') ? 'dark' : '';
+            this.mode = (this.mode == 'Dark Mode') ? 'Light Mode' : 'Dark Mode';
         }
     }
 });

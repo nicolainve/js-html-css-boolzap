@@ -25,10 +25,10 @@
                         <h2 class="username">{{ user.name }}</h2>
                     </div>
                     <div class="buttons">
-                        <i class="fas fa-adjust fa-lg" @click="switchDarkMode"></i>
-                        <i class="fas fa-circle-notch fa-lg"></i>
-                        <i class="fas fa-comment-alt fa-lg"></i>
-                        <i class="fas fa-ellipsis-v fa-lg"></i>
+                        <i class="fas fa-adjust fa-lg" @click="switchDarkMode" :title="mode"></i>
+                        <i class="fas fa-circle-notch fa-lg" title="Status"></i>
+                        <i class="fas fa-comment-alt fa-lg" title="New chat"></i>
+                        <i class="fas fa-ellipsis-v fa-lg" title="Menu"></i>
                     </div>
                 </section>
     
@@ -76,9 +76,9 @@
                         </div>
                     </div>
                     <div class="buttons">
-                        <i class="fas fa-search fa-lg"></i>
-                        <i class="fas fa-paperclip fa-lg"></i>
-                        <i class="fas fa-ellipsis-v fa-lg"></i>
+                        <i class="fas fa-search fa-lg" title="Search..."></i>
+                        <i class="fas fa-paperclip fa-lg" title="Attach"></i>
+                        <i class="fas fa-ellipsis-v fa-lg" title="Menu"></i>
                     </div>
                 </section>
     
