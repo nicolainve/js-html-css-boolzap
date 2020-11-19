@@ -108,14 +108,14 @@ var app = new Vue({
         sendMessage() {
             if (this.input.trim() !== '') {
                 this.contacts[this.activeIndex].messages.push({
-                    date: dayjs().format('DD/MM/YYYY hh:mm:ss'),
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                     message: this.input,
                     status: 'sent'
                 })
                 this.input= '';
 
                 setTimeout(() => this.contacts[this.activeIndex].messages.push({
-                    date: dayjs().format('DD/MM/YYYY hh:mm:ss'),
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                     message: 'Ok',
                     status: 'received'
                 }), 1000);
@@ -135,6 +135,15 @@ var app = new Vue({
         switchDarkMode() {
             this.darkMode = (this.darkMode == '') ? 'dark' : '';
             this.mode = (this.mode == 'Dark Mode') ? 'Light Mode' : 'Dark Mode';
+        },
+        lastAccess(){
+            let time; 
+            this.contacts[this.activeIndex].messages.forEach((message)=>{
+                if( message.status === 'received'){
+                    time = message.date;
+                }
+            }) 
+            return time;  
         }
     }
 });

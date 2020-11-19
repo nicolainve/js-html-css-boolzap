@@ -72,7 +72,7 @@
                         <img :src="'./img/avatar' + contacts[activeIndex].avatar + '.jpg'" alt="logo profile">
                         <div class="user">
                             <h2 class="username">{{ contacts[activeIndex].name }}</h2>
-                            <span class="last-acces">Ultimo accesso {{ contacts[activeIndex].messages[contacts[activeIndex].messages.length - 1].date }}</span>
+                            <span class="last-acces">Ultimo accesso {{ lastAccess() }}</span>
                         </div>
                     </div>
                     <div class="buttons">
